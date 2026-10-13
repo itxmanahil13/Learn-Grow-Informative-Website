@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn & Grow | Informative Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #f5f7fc;
+    color: #192943;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+header {
+    background: #172438;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo i {
+    font-size: 35px;
+    color: #9995ff;
+}
+
+.logo h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+}
+
+.logo small {
+    font-size: 11px;
+    color: #d4dbea;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #a6a1ff;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #293a54;
+    border: 1px solid #536583;
+    padding: 10px 14px;
+    border-radius: 30px;
+}
+
+.search-box input {
+    width: 140px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.search-box input::placeholder {
+    color: #ddd;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 370px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+        linear-gradient(90deg, rgba(16,29,48,.93), rgba(16,29,48,.35)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content {
+    padding: 55px 0;
+}
+
+.eyebrow {
+    color: #aaa5ff;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #aaa0ff;
+}
+
+.hero p {
+    max-width: 490px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    background: #7973f4;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #625bdc;
+    transform: translateY(-3px);
+}
+
+/* CATEGORIES */
+.categories {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.category {
+    padding: 20px 16px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: .3s;
+    color: #192943;
+}
+
+.category:hover,
+.category.active {
+    transform: translateY(-5px);
+    border-color: #8a83f7;
+}
+
+.category:nth-child(1) { background: #ededff; }
+.category:nth-child(2) { background: #e4f7ee; }
+.category:nth-child(3) { background: #fceaf1; }
+.category:nth-child(4) { background: #e7f3ff; }
+.category:nth-child(5) { background: #fff0e5; }
+
+.category i {
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: #7771f1;
+}
+
+.category h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.category p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #52627c;
+}
+
+/* ABOUT SECTION */
+.about {
+    background: #edf1fa;
+    padding: 45px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.label {
+    color: #7771f1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about h2,
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    margin: 8px 0 12px;
+}
+
+.about p {
+    color: #52627c;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 22px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.feature i {
+    font-size: 25px;
+    color: #7771f1;
+}
+
+/* ARTICLES */
+.articles {
+    padding: 45px 0;
+}
+
+.heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 22px;
+    gap: 15px;
+}
+
+.heading-row a {
+    color: #7771f1;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.article-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e6eaf2;
+    box-shadow: 0 5px 18px #1828430d;
+    transition: .3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #1828431c;
+}
+
+.article-card img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.tag {
+    color: #7771f1;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.article-content h3 {
+    font-size: 15px;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.article-content p {
+    font-size: 12px;
+    color: #52627c;
+    line-height: 1.7;
+}
+
+.date {
+    display: block;
+    margin-top: 15px;
+    font-size: 11px;
+    color: #66758b;
+}
+
+.read-more {
+    border: none;
+    background: none;
+    color: #7771f1;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.no-results {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 25px;
+    text-align: center;
+}
+
+/* NEWSLETTER */
+.newsletter {
+    background: #e9e9ff;
+    padding: 35px 0;
+}
+
+.newsletter-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.newsletter h2 {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 7px;
+}
+
+.newsletter p {
+    font-size: 13px;
+    color: #52627c;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 8px;
+}
+
+.newsletter input {
+    padding: 12px;
+    border: 1px solid #d2d5eb;
+    border-radius: 9px;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 12px 17px;
+    border: none;
+    border-radius: 9px;
+    background: #172438;
+    color: white;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #172438;
+    color: white;
+    padding: 25px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.socials {
+    display: flex;
+    gap: 12px;
+}
+
+.socials a {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: #30425e;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.socials a:hover {
+    background: #7771f1;
+    transform: translateY(-3px);
+}
+
+footer p {
+    color: #cbd3e0;
+    font-size: 11px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #172438;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 200;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 950px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 650px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 12px 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+        border-top: 1px solid #ffffff20;
+    }
+
+    .search-box {
+        order: 4;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-inner,
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .newsletter form {
+        width: 100%;
+    }
+
+    .newsletter input {
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+@media (max-width: 400px) {
+    .categories,
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card img {
+        height: 180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="#home" class="logo" style="color:white;text-decoration:none">
+                <i class="fa-solid fa-book-open"></i>
+                <div>
+                    <h2>Learn & Grow</h2>
+                    <small>Better Knowledge · Brighter Future</small>
+                </div>
+            </a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#articles">Articles</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="searchInput" placeholder="Search articles...">
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="eyebrow">LEARN · IMPROVE · ACHIEVE</div>
+            <h1>Small Steps Today,<br>
+                <span>Big Dreams</span> Tomorrow
+            </h1>
+            <p>
+                Explore helpful tips, practical guides and inspiring ideas
+                to learn new skills, stay productive and build the life you want.
+            </p>
+            <a href="#articles" class="btn">
+                Explore Articles <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="container categories" id="categories">
+        <button class="category" data-category="Technology">
+            <i class="fa-solid fa-laptop"></i>
+            <h3>Technology</h3>
+            <p>Discover the latest technology trends, tools and tips.</p>
+        </button>
+
+        <button class="category" data-category="Self Development">
+            <i class="fa-regular fa-lightbulb"></i>
+            <h3>Self Development</h3>
+            <p>Build better habits and improve your mindset.</p>
+        </button>
+
+        <button class="category" data-category="Education">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Education</h3>
+            <p>Learn new things with simple explanations and guides.</p>
+        </button>
+
+        <button class="category" data-category="Productivity">
+            <i class="fa-solid fa-chart-column"></i>
+            <h3>Productivity</h3>
+            <p>Stay focused, organized and achieve your goals.</p>
+        </button>
+
+        <button class="category" data-category="Lifestyle">
+            <i class="fa-regular fa-heart"></i>
+            <h3>Lifestyle</h3>
+            <p>Find balance, positivity and happiness every day.</p>
+        </button>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=85"
+                alt="Laptop and workspace">
+
+            <div>
+                <div class="label">ABOUT THIS WEBSITE</div>
+                <h2>A Space for Curious Minds</h2>
+                <p>
+                    Learn & Grow is an informational platform created to share
+                    useful knowledge, practical tips and inspiring content.
+                    Whether you want to learn something new, find motivation
+                    or explore interesting ideas, you're in the right place!
+                </p>
+
+                <div class="features">
+                    <div class="feature">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Easy to Read<br>Articles</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-regular fa-star"></i>
+                        <span>Helpful<br>Content</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-users"></i>
+                        <span>For Learners<br>and Dreamers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="articles" id="articles">
+        <div class="container">
+            <div class="heading-row">
+                <div>
+                    <div class="label">LATEST ARTICLES</div>
+                    <h2 class="section-title">Featured Reads</h2>
+                </div>
+                <a href="#articles" id="viewAll">View All Articles →</a>
+            </div>
+
+            <div class="article-grid" id="articleGrid">
+
+                <article class="article-card" data-category="Technology">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Programming on a laptop">
+                    <div class="article-content">
+                        <span class="tag">Technology</span>
+                        <h3>Top 5 Programming Languages to Learn</h3>
+                        <p>Explore programming languages that can help you develop skills and create useful projects.</p>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> October 10, 2026</span>
+                        <button class="read-more" data-article="programming">Read Article →</button>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="Productivity">
+                    <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=700&q=80" alt="Notebook for planning">
+                    <div class="article-content">
+                        <span class="tag">Productivity</span>
+                        <h3>10 Daily Habits for a More Productive You</h3>
+                        <p>Simple habits that can make a positive difference in your daily routine.</p>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> October 8, 2026</span>
+                        <button class="read-more" data-article="habits">Read Article →</button>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="Self Development">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Workspace with laptop">
+                    <div class="article-content">
+                        <span class="tag">Self Development</span>
+                        <h3>How to Overcome Procrastination</h3>
+                        <p>Practical tips to stop delaying tasks and stay on track with your goals.</p>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> October 5, 2026</span>
+                        <button class="read-more" data-article="procrastination">Read Article →</button>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="Lifestyle">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Beautiful mountain landscape">
+                    <div class="article-content">
+                        <span class="tag">Lifestyle</span>
+                        <h3>The Power of a Positive Mindset</h3>
+                        <p>Learn how positive thinking can help you handle challenges and grow.</p>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> October 2, 2026</span>
+                        <button class="read-more" data-article="mindset">Read Article →</button>
+                    </div>
+                </article>
+
+                <div class="no-results" id="noResults">
+                    No articles found. Try a different search.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+        <div class="container newsletter-inner">
+            <div>
+                <h2>Keep Learning with Us</h2>
+                <p>Get inspired to take your next big step.</p>
+            </div>
+
+            <form id="newsletterForm">
+                <input type="email" id="emailInput" placeholder="Your email address" required>
+                <button type="submit">Join Us →</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div class="logo">
+            <i class="fa-solid fa-book-open"></i>
+            <div>
+                <h2>Learn & Grow</h2>
+                <small>Better Knowledge · Brighter Future</small>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+
+        <p>© <span id="year"></span> Learn & Grow. All rights reserved.</p>
+    </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// MOBILE MENU
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+
+    menuBtn.innerHTML = navLinks.classList.contains("open")
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+});
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+});
+
+// SEARCH ARTICLES
+const searchInput = document.getElementById("searchInput");
+const articleCards = document.querySelectorAll(".article-card");
+const noResults = document.getElementById("noResults");
+
+let selectedCategory = "All";
+
+function filterArticles() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    articleCards.forEach(function (card) {
+        const category = card.dataset.category;
+        const text = card.innerText.toLowerCase();
+
+        const categoryMatch =
+            selectedCategory === "All" ||
+            category === selectedCategory;
+
+        const searchMatch = text.includes(query);
+
+        if (categoryMatch && searchMatch) {
+            card.style.display = "block";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+}
+
+searchInput.addEventListener("input", filterArticles);
+
+// CATEGORY FILTER
+const categoryButtons = document.querySelectorAll(".category");
+
+categoryButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        const category = button.dataset.category;
+
+        selectedCategory =
+            selectedCategory === category ? "All" : category;
+
+        categoryButtons.forEach(function (item) {
+            item.classList.toggle(
+                "active",
+                item.dataset.category === selectedCategory
+            );
+        });
+
+        filterArticles();
+
+        document.getElementById("articles").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+// VIEW ALL ARTICLES
+document.getElementById("viewAll").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    selectedCategory = "All";
+    searchInput.value = "";
+
+    categoryButtons.forEach(function (button) {
+        button.classList.remove("active");
+    });
+
+    filterArticles();
+});
+
+// ARTICLE READING POPUPS
+const articleInfo = {
+    programming: {
+        title: "Top 5 Programming Languages to Learn",
+        text: "Python is popular for beginners, automation and artificial intelligence. JavaScript makes websites interactive. HTML and CSS help you create web pages. Java is widely used for applications, while C# is useful for software and games. Choose a language that matches your goals and practise by building small projects."
+    },
+
+    habits: {
+        title: "10 Daily Habits for a More Productive You",
+        text: "Start your day by writing down three important tasks. Break large projects into smaller steps, keep your workspace organized, and take short breaks. Avoid distractions while studying, stay hydrated, and prepare for tomorrow in advance. Begin with one habit at a time and build consistency."
+    },
+
+    procrastination: {
+        title: "How to Overcome Procrastination",
+        text: "When a task feels difficult, try working on it for just five minutes. Divide the task into smaller goals, put distractions away, and focus on progress rather than perfection. Give yourself credit for completing each step. Small actions can help you build momentum and confidence."
+    },
+
+    mindset: {
+        title: "The Power of a Positive Mindset",
+        text: "A positive mindset does not mean that every day will be perfect. It means learning from mistakes, recognizing your progress, and focusing on what you can change. Treat yourself with kindness, celebrate small achievements, and remember that challenges can teach you valuable lessons."
+    }
+};
+
+document.querySelectorAll(".read-more").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const article = articleInfo[button.dataset.article];
+
+        const popup = document.createElement("div");
+
+        popup.style.cssText = `
+            position:fixed;
+            inset:0;
+            z-index:300;
+            background:rgba(10,20,35,.75);
+            display:grid;
+            place-items:center;
+            padding:20px;
+        `;
+
+        popup.innerHTML = `
+            <div style="
+                background:white;
+                max-width:600px;
+                width:100%;
+                padding:30px;
+                border-radius:18px;
+                position:relative;
+                max-height:85vh;
+                overflow:auto;
+            ">
+                <button id="closePopup" style="
+                    float:right;
+                    border:0;
+                    background:#ededff;
+                    padding:7px 12px;
+                    border-radius:50%;
+                    font-size:20px;
+                    cursor:pointer;
+                ">×</button>
+
+                <p style="color:#7771f1;font-size:12px;font-weight:bold;margin:15px 0">
+                    LEARN & GROW · ARTICLE
+                </p>
+
+                <h2 style="font-family:'Playfair Display',serif;margin-bottom:18px">
+                    ${article.title}
+                </h2>
+
+                <p style="color:#52627c;line-height:1.9">
+                    ${article.text}
+                </p>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        popup.querySelector("#closePopup").addEventListener("click", function () {
+            popup.remove();
+        });
+
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                popup.remove();
+            }
+        });
+    });
+});
+
+// NEWSLETTER DEMO
+document.getElementById("newsletterForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent =
+        "Thank you for your interest! Connect an email service to save subscriptions.";
+
+    toast.style.display = "block";
+
+    setTimeout(function () {
+        toast.style.display = "none";
+    }, 4000);
+
+    this.reset();
+});
+
+// CURRENT YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
